@@ -6,19 +6,20 @@ const btn2 = document.getElementById("btn2");
 btn1.addEventListener("click", funcA);
 btn2.addEventListener("click", funcB);
 
-let contador = 0 
-console.log(cx0.value)
 let intervalo;
+let valor;
 
 function funcA() {
-    contador = cx0.value;
-    intervalo = setInterval(function(){
-        contador++
-        cx1.textContent = contador;
-    },1000);
+  valor = cx0.value;
+  intervalo = setInterval(funcInterval, 1000);
+}
+
+function funcInterval(){
+    cx1.innerText = valor;
+    valor++;
 }
 
 function funcB() {
-    clearInterval(intervalo)
-    cx0.value = contador
+  clearInterval(intervalo);
+  cx0.value = cx1.innerHTML;
 }
